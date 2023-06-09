@@ -1,24 +1,22 @@
 import logo from './logo.svg';
 import './App.css';
-
-function App() {
+import {useState, useEffect} from 'react';
+import Github from './Component/Github';
+import Home from './Component/Home';
+import Repo from './Component/Repo';
+import {Route,Routes} from "react-router-dom"
+import Follower from './Component/Follower';
+import Following from './Component/Following';
+import User from './Component/user';
+function App () {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/:id/repo" element={<Repo/>}/>
+        <Route path='/:id/followers' element={<Follower/>}/>
+        <Route path='/:id/following' element={<Following/>}/>
+        <Route path='/user/:id' element={<User/>}/>
+      </Routes>
   );
 }
 
